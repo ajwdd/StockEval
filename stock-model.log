@@ -1,0 +1,448 @@
+2023-12-03 23:32:54,017:INFO:---- Starting a new run ----
+2023-12-03 23:32:59,139:INFO:User entered stock ticker: SOXX
+2023-12-03 23:33:13,021:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-03 23:33:29,473:INFO:Mean Squared Error on Test Set: 20.504710536958395
+2023-12-03 23:33:29,483:INFO:---- Run completed successfully ----
+2023-12-03 23:35:16,470:INFO:---- Starting a new run ----
+2023-12-03 23:35:19,043:INFO:User entered stock ticker: soxx
+2023-12-03 23:35:28,131:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-03 23:35:29,076:ERROR:Error training the model: module 'pandas' has no attribute 'SparseDataFrame'
+2023-12-03 23:35:29,077:INFO:---- Run completed successfully ----
+2023-12-03 23:36:24,130:INFO:---- Starting a new run ----
+2023-12-03 23:36:25,669:INFO:User entered stock ticker: soxx
+2023-12-03 23:36:35,253:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-03 23:36:46,901:INFO:Mean Squared Error on Test Set: 20.504710536958395
+2023-12-03 23:36:46,914:INFO:---- Run completed successfully ----
+2023-12-03 23:38:17,634:INFO:---- Starting a new run ----
+2023-12-03 23:38:24,584:INFO:User entered stock ticker: sintc
+2023-12-03 23:38:36,807:INFO:User entered date range: 2000-01-01 to 2023-01-01
+2023-12-03 23:38:37,668:ERROR:
+1 Failed download:
+2023-12-03 23:38:37,669:ERROR:['SINTC']: Exception('%ticker%: No timezone found, symbol may be delisted')
+2023-12-03 23:38:37,693:ERROR:Error creating features: attempt to get argmax of an empty sequence
+2023-12-03 23:38:37,694:WARNING:Error creating features
+2023-12-03 23:38:52,609:INFO:---- Starting a new run ----
+2023-12-03 23:38:56,204:INFO:User entered stock ticker: intc
+2023-12-03 23:39:11,394:INFO:User entered date range: 2010-01-01 to 2023-12-01
+2023-12-03 23:39:18,231:INFO:Mean Squared Error on Test Set: 0.6727337347674097
+2023-12-03 23:39:18,240:INFO:---- Run completed successfully ----
+2023-12-03 23:40:35,928:INFO:---- Starting a new run ----
+2023-12-03 23:40:52,107:INFO:User entered stock ticker: soxx
+2023-12-03 23:41:03,316:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-03 23:41:11,733:INFO:Mean Squared Error on Test Set: 20.504710536958395
+2023-12-03 23:41:11,740:INFO:---- Run completed successfully ----
+2023-12-03 23:43:37,040:INFO:---- Starting a new run ----
+2023-12-03 23:43:40,098:INFO:User entered stock ticker: intc
+2023-12-03 23:43:55,122:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-03 23:44:06,531:INFO:Mean Squared Error on Test Set: 0.7596156364845675
+2023-12-03 23:44:06,542:INFO:---- Run completed successfully ----
+2023-12-03 23:44:06,553:INFO:---- Starting a new run ----
+2023-12-03 23:44:47,269:INFO:User entered stock ticker: soxx
+2023-12-03 23:44:56,186:INFO:---- Starting a new run ----
+2023-12-03 23:45:02,369:INFO:User entered stock ticker: intc
+2023-12-03 23:45:12,332:INFO:User entered date range: 2005-01-01 to 2023-12-01
+2023-12-03 23:45:27,531:INFO:Mean Squared Error on Test Set: 0.5897007175136311
+2023-12-03 23:45:27,540:INFO:---- Run completed successfully ----
+2023-12-03 23:46:02,499:INFO:---- Starting a new run ----
+2023-12-03 23:46:06,243:INFO:User entered stock ticker: intc
+2023-12-03 23:46:13,988:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-03 23:46:26,965:INFO:Mean Squared Error on Test Set: 0.7596156364845675
+2023-12-03 23:46:26,973:INFO:---- Run completed successfully ----
+2023-12-03 23:54:24,636:INFO:---- Starting a new run ----
+2023-12-03 23:54:32,094:INFO:User entered stock ticker: soxx
+2023-12-03 23:54:47,005:INFO:User entered date range: 2020-01-01 to 2023-01-01
+2023-12-03 23:54:56,216:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-03 23:54:56,216:ERROR:An unexpected error occurred: unsupported operand type(s) for -: 'NoneType' and 'float'
+2023-12-03 23:56:43,786:INFO:---- Starting a new run ----
+2023-12-03 23:56:48,263:INFO:User entered stock ticker: intc
+2023-12-03 23:57:02,581:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-03 23:58:07,812:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-03 23:58:07,812:ERROR:An unexpected error occurred: unsupported operand type(s) for -: 'NoneType' and 'float'
+2023-12-03 23:59:47,204:INFO:---- Starting a new run ----
+2023-12-03 23:59:53,313:INFO:User entered stock ticker: intc
+2023-12-04 00:00:03,305:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-04 00:01:26,752:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-04 00:01:26,754:INFO:---- Run completed successfully ----
+2023-12-04 00:03:02,492:INFO:---- Starting a new run ----
+2023-12-04 00:03:37,029:INFO:User entered stock ticker: intc
+2023-12-04 00:03:45,322:INFO:User entered date range: 2020-01-01 to 2023-01-01
+2023-12-04 00:03:57,046:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-04 00:03:57,047:INFO:---- Run completed successfully ----
+2023-12-04 00:05:07,840:INFO:---- Starting a new run ----
+2023-12-04 00:05:11,702:INFO:User entered stock ticker: intc
+2023-12-04 00:05:18,831:INFO:User entered date range: 2000-01-01 to 2023-01-01
+2023-12-04 00:06:24,006:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-04 00:06:24,008:INFO:---- Run completed successfully ----
+2023-12-04 00:08:39,325:INFO:---- Starting a new run ----
+2023-12-04 00:08:44,790:INFO:User entered stock ticker: intc
+2023-12-04 00:08:53,959:INFO:User entered date range: 2020-01-01 to 2023-12-01
+2023-12-04 00:09:05,077:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-04 00:09:05,078:INFO:---- Run completed successfully ----
+2023-12-04 00:10:22,757:INFO:---- Starting a new run ----
+2023-12-04 00:10:24,375:INFO:User entered stock ticker: soxx
+2023-12-04 00:10:31,327:INFO:User entered date range: 2010-01-01 to 2023-01-01
+2023-12-04 00:10:33,449:ERROR:Error training the LSTM model: name 'train_lstm_model' is not defined
+2023-12-04 00:10:33,449:INFO:---- Run completed successfully ----
+2023-12-04 00:11:42,904:INFO:---- Starting a new run ----
+2023-12-04 00:11:45,857:INFO:User entered stock ticker: intc
+2023-12-04 00:11:53,984:INFO:User entered date range: 2020-01-01] to 2023-01-01
+2023-12-04 00:11:54,030:ERROR:
+1 Failed download:
+2023-12-04 00:11:54,031:ERROR:['INTC']: ValueError('unconverted data remains: ]')
+2023-12-04 00:11:54,036:ERROR:Error creating features: attempt to get argmax of an empty sequence
+2023-12-04 00:11:54,036:WARNING:Error creating features
+2023-12-04 00:11:57,178:INFO:---- Starting a new run ----
+2023-12-04 00:12:01,112:INFO:User entered stock ticker: intc
+2023-12-04 00:12:10,609:INFO:User entered date range: 2020-01-01 to 2023-12-01
+2023-12-04 00:12:11,194:ERROR:Error training the LSTM model: name 'train_lstm_model' is not defined
+2023-12-04 00:12:11,194:INFO:---- Run completed successfully ----
+2023-12-04 00:13:35,211:INFO:---- Starting a new run ----
+2023-12-04 00:13:39,957:INFO:User entered stock ticker: 2000-01-02
+2023-12-04 00:13:52,583:INFO:User entered date range: 2023-12-01 to 
+2023-12-04 00:13:53,395:ERROR:
+1 Failed download:
+2023-12-04 00:13:53,395:ERROR:['2000-01-02']: Exception('%ticker%: No timezone found, symbol may be delisted')
+2023-12-04 00:13:53,406:ERROR:Error creating features: attempt to get argmax of an empty sequence
+2023-12-04 00:13:53,406:WARNING:Error creating features
+2023-12-04 00:13:57,225:INFO:---- Starting a new run ----
+2023-12-04 00:14:00,598:INFO:User entered stock ticker: intx
+2023-12-04 00:14:03,801:INFO:User entered date range:  to 
+2023-12-04 00:14:03,995:ERROR:
+1 Failed download:
+2023-12-04 00:14:03,996:ERROR:['INTX']: ValueError("time data '' does not match format '%Y-%m-%d'")
+2023-12-04 00:14:04,003:ERROR:Error creating features: attempt to get argmax of an empty sequence
+2023-12-04 00:14:04,003:WARNING:Error creating features
+2023-12-04 00:14:05,441:INFO:---- Starting a new run ----
+2023-12-04 00:14:07,977:INFO:User entered stock ticker: intc
+2023-12-04 00:14:20,057:INFO:User entered date range: 2015-01-01 to 2023-12-01
+2023-12-04 00:14:40,454:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-04 00:14:40,455:INFO:---- Run completed successfully ----
+2023-12-04 00:15:48,179:INFO:---- Starting a new run ----
+2023-12-04 00:15:50,311:INFO:User entered stock ticker: intc
+2023-12-04 00:16:01,915:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-04 00:17:29,471:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-04 00:17:29,472:INFO:---- Run completed successfully ----
+2023-12-04 00:18:23,086:INFO:---- Starting a new run ----
+2023-12-04 00:18:25,190:INFO:User entered stock ticker: intc
+2023-12-04 00:18:32,370:INFO:User entered date range: 2023-01-01 to 2023-12-01
+2023-12-04 00:18:39,351:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-04 00:18:39,352:INFO:---- Run completed successfully ----
+2023-12-04 00:20:15,919:INFO:---- Starting a new run ----
+2023-12-04 00:20:22,074:INFO:User entered stock ticker: intc
+2023-12-04 00:20:30,129:INFO:User entered date range: 2000-01-01 to 2023-12-02
+2023-12-04 00:22:01,616:ERROR:Error predicting future prices with LSTM: cannot reshape array of size 8 into shape (1,1,1)
+2023-12-04 00:22:01,617:INFO:---- Run completed successfully ----
+2023-12-04 00:23:51,635:INFO:---- Starting a new run ----
+2023-12-04 00:23:58,342:INFO:User entered stock ticker: intc
+2023-12-04 00:24:08,836:INFO:User entered date range: 2000-10-01 to 2023-12-01
+2023-12-04 00:25:30,492:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:25:30,495:INFO:---- Run completed successfully ----
+2023-12-04 00:28:58,693:INFO:---- Starting a new run ----
+2023-12-04 00:29:03,946:INFO:User entered stock ticker: SOXX
+2023-12-04 00:29:16,572:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-04 00:31:41,542:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:31:41,545:INFO:---- Run completed successfully ----
+2023-12-04 00:33:33,157:INFO:---- Starting a new run ----
+2023-12-04 00:33:41,489:INFO:User entered stock ticker: intc
+2023-12-04 00:33:50,936:INFO:User entered date range: 2020-10-01 to 2023-01-01
+2023-12-04 00:34:00,396:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:34:00,398:INFO:---- Run completed successfully ----
+2023-12-04 00:35:05,865:INFO:---- Starting a new run ----
+2023-12-04 00:35:21,744:INFO:User entered stock ticker: intc
+2023-12-04 00:35:38,729:INFO:User entered date range: 2000-02-13 to 2023-01-01
+2023-12-04 00:37:20,942:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:37:20,957:INFO:---- Run completed successfully ----
+2023-12-04 00:41:42,824:INFO:---- Starting a new run ----
+2023-12-04 00:42:07,652:INFO:User entered stock ticker: intc
+2023-12-04 00:42:21,303:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-04 00:44:06,794:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:44:06,797:INFO:---- Run completed successfully ----
+2023-12-04 00:45:23,102:INFO:---- Starting a new run ----
+2023-12-04 00:45:29,165:INFO:User entered stock ticker: intc
+2023-12-04 00:45:40,653:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-04 00:47:29,871:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:47:29,873:INFO:---- Run completed successfully ----
+2023-12-04 00:49:50,822:INFO:---- Starting a new run ----
+2023-12-04 00:51:42,147:INFO:User entered stock ticker: intc
+2023-12-04 00:51:56,259:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-04 00:53:34,953:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:53:34,956:INFO:---- Run completed successfully ----
+2023-12-04 00:55:27,468:INFO:---- Starting a new run ----
+2023-12-04 00:55:29,431:INFO:User entered stock ticker: intc
+2023-12-04 00:55:43,402:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-04 00:56:41,513:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:56:41,516:INFO:---- Run completed successfully ----
+2023-12-04 00:58:38,479:INFO:---- Starting a new run ----
+2023-12-04 00:58:43,033:INFO:User entered stock ticker: intc
+2023-12-04 00:58:51,600:INFO:User entered date range: 2000-01-01 to 2023-12-01
+2023-12-04 00:59:41,102:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 00:59:41,105:INFO:---- Run completed successfully ----
+2023-12-04 01:06:19,651:INFO:---- Starting a new run ----
+2023-12-04 01:06:59,180:INFO:User entered stock ticker: intc
+2023-12-04 01:07:07,210:INFO:User entered date range: 2023-0101 to 
+2023-12-04 01:07:07,345:ERROR:
+1 Failed download:
+2023-12-04 01:07:07,345:ERROR:['INTC']: ValueError("time data '' does not match format '%Y-%m-%d'")
+2023-12-04 01:07:07,375:ERROR:Error creating features: attempt to get argmax of an empty sequence
+2023-12-04 01:07:07,376:WARNING:Error creating features
+2023-12-04 01:07:09,747:INFO:---- Starting a new run ----
+2023-12-04 01:07:14,646:INFO:User entered stock ticker: intc
+2023-12-04 01:07:29,018:INFO:User entered date range: 2020-01-01 to 2023-01-02
+2023-12-04 01:07:50,566:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 01:07:50,569:INFO:---- Run completed successfully ----
+2023-12-04 01:08:48,364:INFO:---- Starting a new run ----
+2023-12-04 01:08:55,799:INFO:User entered stock ticker: soxx
+2023-12-04 01:09:07,013:INFO:User entered date range: 2020-01-01 to 2023-01-01
+2023-12-04 01:09:15,298:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 01:09:15,299:INFO:---- Run completed successfully ----
+2023-12-04 01:10:52,892:INFO:---- Starting a new run ----
+2023-12-04 01:10:52,893:INFO:User entered stock ticker: soxx
+2023-12-04 01:10:59,699:INFO:User entered date range:  to 
+2023-12-04 01:10:59,775:ERROR:
+1 Failed download:
+2023-12-04 01:10:59,775:ERROR:['SOXX']: ValueError("time data '' does not match format '%Y-%m-%d'")
+2023-12-04 01:10:59,794:ERROR:Error creating features: attempt to get argmax of an empty sequence
+2023-12-04 01:10:59,795:WARNING:Error creating features
+2023-12-04 01:11:01,689:INFO:---- Starting a new run ----
+2023-12-04 01:12:12,738:INFO:User entered stock ticker: soxx
+2023-12-04 01:12:23,564:INFO:User entered date range: 2000-01-01 to 2023-01-01
+2023-12-04 01:13:04,266:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 01:13:04,268:INFO:---- Run completed successfully ----
+2023-12-04 01:13:18,408:INFO:---- Starting a new run ----
+2023-12-04 01:14:12,709:INFO:User entered stock ticker: intc
+2023-12-04 01:14:26,140:INFO:User entered date range: 2000-10-01 to 2023-01-01
+2023-12-04 01:15:57,790:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 01:15:57,794:INFO:---- Run completed successfully ----
+2023-12-04 01:32:11,365:INFO:---- Starting a new run ----
+2023-12-04 01:32:15,558:INFO:User entered stock ticker: intc
+2023-12-04 01:32:23,398:INFO:User entered date range: 2000-01-02 to 2023-01-01
+2023-12-04 01:34:51,376:ERROR:Error predicting future prices with LSTM: in user code:
+
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2169, in predict_function  *
+        return step_function(self, iterator)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2155, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2143, in run_step  **
+        outputs = model.predict_step(data)
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/training.py", line 2111, in predict_step
+        return self(x, training=False)
+    File "/usr/local/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/usr/local/lib/python3.11/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 8, 1), found shape=(None, 1, 8)
+
+2023-12-04 01:34:51,378:INFO:---- Run completed successfully ----
+2023-12-04 01:36:49,603:INFO:---- Starting a new run ----
+2023-12-04 01:38:00,162:INFO:User entered stock ticker: intc
+2023-12-04 01:38:11,855:INFO:User entered date range: 2020-01-01 to 2023-01-01
+2023-12-04 01:38:18,608:INFO:---- Run completed successfully ----
