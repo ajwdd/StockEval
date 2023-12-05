@@ -16,6 +16,14 @@ logging.basicConfig(
     format="%(asctime)s:%(levelname)s:%(message)s",
 )
 
+# ANSI escape codes for text color
+GREEN = "\033[92m"
+RED = "\033[91m"
+RESET = "\033[0m"
+
+warnings.simplefilter(action="ignore", category=FutureWarning)
+
+
 
 def get_stock_data(ticker, start_date, end_date):
     try:
@@ -255,23 +263,25 @@ def main():
                     lstm_model, scaler, future_features, selected_features
                 )
 
-                if future_price_lstm is not None:
-                    last_close = stock_data["Close"].iloc[-1]
-                    change_percentage = (
-                        (future_price_lstm - last_close) / last_close
-                    ) * 100
 
-                    if future_price_lstm > last_close:
-                        direction = "up"
-                    else:
-                        direction = "down"
+            if future_price_lstm is not None:
+                last_close = stock_data["Close"].iloc[-1]
+                change_percentage = ((future_price_lstm - last_close) / last_close) * 100
 
-                    print(
-                        f"Predicted Close Price with LSTM for {future_date.date()}: {future_price_lstm:.2f}"
-                    )
-                    print(
-                        f"The price is expected to move {direction} by {abs(change_percentage):.2f}% from the last close."
-                    )
+                if future_price_lstm > last_close:
+                    direction = "up"
+                    color = GREEN  # set text color to green for "up"
+                else:
+                    direction = "down"
+                    color = RED  # set text color to red for "down"
+
+                # Print predicted close price with color-coded direction
+                print(
+                    f"Predicted Close Price with LSTM for {future_date.date()}: {color}{future_price_lstm:.2f}{RESET}"
+                )
+                print(
+                    f"The price is expected to move {direction} by {color}{abs(change_percentage):.2f}%{RESET} from the last close."
+                )
 
             logging.info("---- Run completed successfully ----")
             break
