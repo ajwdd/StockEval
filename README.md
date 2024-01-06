@@ -1,6 +1,6 @@
 # µForecast  🤝 µSentiment
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)[![Stars](https://img.shields.io/github/stars/bugsommelier/RapidUnlike.svg?style=flat)](https://github.com/bugsommelier/uForecast/stargazers) [![Size](https://img.shields.io/github/repo-size/bugsommelier/RapidUnlike)](https://github.com/bugsommelier/uForecast) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://unlicense.org) [![IsMaintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/bugsommelier/uForecast/activity)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) [![Stars](https://img.shields.io/github/stars/bugsommelier/uForecast.svg?style=flat)](https://github.com/bugsommelier/uForecast/stargazers) [![Size](https://img.shields.io/github/repo-size/bugsommelier/RapidUnlike)](https://github.com/bugsommelier/uForecast) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://unlicense.org) [![IsMaintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/bugsommelier/uForecast/activity)
 
 ## 🌐 Overview
 
