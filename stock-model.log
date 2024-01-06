@@ -1,0 +1,5 @@
+2024-01-06 17:00:13,715:INFO:---- Starting a new run ----
+2024-01-06 17:00:17,990:INFO:User entered stock ticker: INTC
+2024-01-06 17:00:31,280:INFO:User entered date range: 2023-01-01 to 2024-01-01
+2024-01-06 17:00:52,643:INFO:Mean Squared Error on Test Set: 0.7310915515045053
+2024-01-06 17:00:52,649:INFO:---- Run completed successfully ----
