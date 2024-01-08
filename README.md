@@ -1,6 +1,6 @@
-# µForecast  🤝 µSentiment
+# µFinance
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) [![Stars](https://img.shields.io/github/stars/bugsommelier/uForecast.svg?style=flat)](https://github.com/bugsommelier/uForecast/stargazers) [![Size](https://img.shields.io/github/repo-size/bugsommelier/RapidUnlike)](https://github.com/bugsommelier/uForecast) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://unlicense.org) [![IsMaintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/bugsommelier/uForecast/activity)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) [![Stars](https://img.shields.io/github/stars/bugsommelier/uFinance.svg?style=flat)](https://github.com/bugsommelier/uFinance/stargazers) [![Size](https://img.shields.io/github/repo-size/bugsommelier/uFinance)](https://github.com/bugsommelier/uFinance) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://unlicense.org) [![IsMaintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/bugsommelier/uFinance/activity)
 
 ## 🌐 Overview
 
@@ -21,7 +21,7 @@ A suite of two investmest tools, a stock price forecaster and sentiment analysis
 - Analyze the sentiment of each article title.
 - Visualize stock prices and sentiment scores.
 
-### Prerequisites 🔧
+### 🔧 Prerequisites
 
 - Python 3
 
