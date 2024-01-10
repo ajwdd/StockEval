@@ -15,19 +15,21 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 print("Current working directory:", os.getcwd())
 
 def main():
-    config = read_config()
-    verify_feeds = config.get("verify_rss_on_startup", False)
-    file_path = ("µFinance/µSentiment/config/rss_feeds.json")
+    verify_feeds = True
+
+    file_path = ("µSentiment/config/rss_feeds.json")
+    
     if verify_feeds:
         logging.info("Starting RSS feed verification")
         rss_urls = load_rss_urls(file_path)
         asyncio.run(verify_rss_feeds(rss_urls))
+        
 
     stock_symbol = input("Enter the stock ticker: ").strip().upper()
     target_article_count = int(input("Enter desired number of relevant articles: ").strip())
     stock_info = yf.Ticker(stock_symbol).info
     company_name = stock_info.get("longName", "")
-
+    rss_urls = load_rss_urls(file_path)
     news_items = asyncio.run(fetch_news(rss_urls, stock_symbol, company_name, target_article_count))
     sentiments = asyncio.run(analyze_sentiment_parallel([article[0] for article in news_items]))
 
