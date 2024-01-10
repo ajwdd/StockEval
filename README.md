@@ -1,6 +1,6 @@
 # µFinance
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) [![Stars](https://img.shields.io/github/stars/bugsommelier/uFinance.svg?style=flat)](https://github.com/bugsommelier/uFinance/stargazers) [![Size](https://img.shields.io/github/repo-size/bugsommelier/uFinance)](https://github.com/bugsommelier/uFinance) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://unlicense.org) [![IsMaintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/bugsommelier/uFinance/activity)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) [![Stars](https://img.shields.io/github/stars/ajwdd/uFinance.svg?style=flat)](https://github.com/ajwdd/uFinance/stargazers) [![Size](https://img.shields.io/github/repo-size/ajwdd/uFinance)](https://github.com/ajwdd/uFinance) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://unlicense.org) [![IsMaintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ajwdd/uFinance/activity)
 
 ## 🌐 Overview
 
