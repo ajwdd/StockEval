@@ -4,17 +4,17 @@
 
 ## 🌐 Overview
 
-A suite of two investment tools, a stock price forecaster and sentiment analysis.  **Still under development**,  this suite is built to be as accurate and in-depth as possible for low-resource machines.
+A suite of two investment tools, a stock price forecaster and sentiment analysis. This suite is built to be as accurate and in-depth as possible for low-resource machines.
 
 ## 🚀 Features 
 
-### 📈 µForecast - Currently inaccurate and under development
+### 📈 µForecast
 
 - Predicts the closing stock price for the next day.
 - Provides information on whether the predicted price will go up or down.
 - Calculates the percentage change from the last close.
 
-### 📊 µSentiment - Working
+### 📊 µSentiment
 
 - Fetch news from multiple finance news RSS feeds.
 - Filter relevant news articles based on stock symbols and company names.
