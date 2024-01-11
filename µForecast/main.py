@@ -24,7 +24,6 @@ RESET = "\033[0m"
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
 
-
 def get_stock_data(ticker, start_date, end_date):
     try:
         stock_data = yf.download(ticker, start=start_date, end=end_date)
@@ -100,7 +99,7 @@ def calculate_rsi(data, window=14):
         return None
 
 
-def predict_future_prices_lstm(model, scaler, current_features, selected_features):
+def predict_future_prices(model, scaler, current_features, selected_features):
     try:
         # Select the relevant features
         current_features = current_features[selected_features]
@@ -111,14 +110,13 @@ def predict_future_prices_lstm(model, scaler, current_features, selected_feature
             (1, len(selected_features), 1)
         )
 
-        # Make predictions with the LSTM model
         predicted_price = model.predict(current_features_reshaped)
 
         return predicted_price[0, 0]
 
     except Exception as e:
-        logging.error(f"Error predicting future prices with LSTM: {e}")
-        print(f"Error predicting future prices with LSTM: {e}")
+        logging.error(f"Error predicting future prices: {e}")
+        print(f"Error predicting future prices: {e}")
         return None
 
 
@@ -139,7 +137,7 @@ def train_model(features, target):
 
         model = Sequential()
         model.add(
-            LSTM(units=50, activation="relu", input_shape=(X_train_scaled.shape[1], 1))
+            LSTM(units=550, activation="relu", input_shape=(X_train_scaled.shape[1], 1))
         )
         model.add(Dense(units=1))
         model.compile(optimizer="adam", loss="mse")
@@ -154,8 +152,8 @@ def train_model(features, target):
         model.fit(
             X_train_reshaped,
             y_train,
-            epochs=50,
-            batch_size=32,
+            epochs=1250,
+            batch_size=128,
             validation_data=(X_test_reshaped, y_test),
             verbose=1,
         )
@@ -163,8 +161,8 @@ def train_model(features, target):
         return model, scaler
 
     except Exception as e:
-        logging.error(f"Error training the LSTM model: {e}")
-        print(f"Error training the LSTM model: {e}")
+        logging.error(f"Error training the model: {e}")
+        print(f"Error training the model: {e}")
         return None, None
 
 
@@ -172,15 +170,13 @@ def main():
     while True:
         try:
             logging.info("---- Starting a new run ----")
-            print("Welcome to Alpha Forecast with LSTM!")
+            print("Welcome to µForecast!")
 
             ticker = input("Enter the stock ticker symbol: ")
             logging.info(f"User entered stock ticker: {ticker}")
 
             start_date = input("Enter the start date (YYYY-MM-DD): ")
-            end_date = input(
-                "Enter the end date (YYYY-MM-DD)): "
-            )
+            end_date = input("Enter the end date (YYYY-MM-DD)): ")
 
             if "+" in end_date:
                 days_to_add = int(end_date[1:])
@@ -259,14 +255,15 @@ def main():
                     columns=selected_features,
                 )
 
-                future_price_lstm = predict_future_prices_lstm(
+                future_price_lstm = predict_future_prices(
                     lstm_model, scaler, future_features, selected_features
                 )
 
-
             if future_price_lstm is not None:
                 last_close = stock_data["Close"].iloc[-1]
-                change_percentage = ((future_price_lstm - last_close) / last_close) * 100
+                change_percentage = (
+                    (future_price_lstm - last_close) / last_close
+                ) * 100
 
                 if future_price_lstm > last_close:
                     direction = "up"
@@ -277,7 +274,7 @@ def main():
 
                 # Print predicted close price with color-coded direction
                 print(
-                    f"Predicted Close Price with LSTM for {future_date.date()}: {color}{future_price_lstm:.2f}{RESET}"
+                    f"Forecasted close price for {future_date.date()}: {color}{future_price_lstm:.2f}{RESET}"
                 )
                 print(
                     f"The price is expected to move {direction} by {color}{abs(change_percentage):.2f}%{RESET} from the last close."
@@ -292,6 +289,7 @@ def main():
             retry = input("Do you want to re-enter the information? (yes/no): ").lower()
             if retry != "yes":
                 break
+
 
 if __name__ == "__main__":
     main()
