@@ -1,6 +1,7 @@
 import json
 
-config_file = "µFinance/µSentiment/config/config.json"
+config_file = "/config/config.json"
+
 
 def read_config():
     """Read the configuration file and return the settings."""
@@ -9,6 +10,7 @@ def read_config():
             return json.load(file)
     except FileNotFoundError:
         return {"verify_rss_on_startup": False}
+
 
 def write_config(config):
     """Write the updated configuration to the file."""

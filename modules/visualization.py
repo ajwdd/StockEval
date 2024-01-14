@@ -1,8 +1,9 @@
-#visualization.py
+# visualization.py
 import logging
 import pandas as pd
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+
 
 def visualize_data(stock_symbol, news_data, stock_data):
     """Create responsive and fluid visualizations for stock prices and news sentiment."""
@@ -80,7 +81,7 @@ def visualize_data(stock_symbol, news_data, stock_data):
         autosize=True,
         legend=dict(
             orientation="h", yanchor="auto", y=1.02, xanchor="right", x=1
-        ),  # Adjust legend
+        ),
         margin=dict(l=40, r=40, t=40, b=40),
     )
 

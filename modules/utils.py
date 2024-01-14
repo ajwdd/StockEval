@@ -3,6 +3,7 @@ import asyncio
 import feedparser
 import json
 
+
 async def verify_rss_feed(url, session):
     """Verify a single RSS feed and return its status."""
     try:
@@ -19,6 +20,7 @@ async def verify_rss_feed(url, session):
         return url, "Timeout - Feed Not Responding"
     except Exception as e:
         return url, f"Error: {e}"
+
 
 async def verify_rss_feeds(rss_urls):
     """Verify each RSS feed and log its status with color."""
@@ -37,6 +39,7 @@ async def verify_rss_feeds(rss_urls):
         else:
             color = RED
         print(f"{color}RSS feed {url} - {status}{RESET}")
+
 
 def load_rss_urls(file_path):
     """Load RSS feed URLs from a JSON file."""
