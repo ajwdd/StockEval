@@ -8,7 +8,7 @@ from colorama import Fore
 def get_current_risk_free_rate():
     try:
         treasury_data = yf.Ticker("^TNX")
-        hist = treasury_data.history(period="1d")
+        hist = treasury_data.history(period="5d")
 
         # Check if the DataFrame is empty
         if hist.empty:
