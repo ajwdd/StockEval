@@ -1,7 +1,7 @@
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 from colorama import Fore
 import logging
-import yfinance as yf
-
 import warnings
 from modules.forecast import run_forecast
 from modules.sentiment import run_sentiment

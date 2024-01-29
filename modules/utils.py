@@ -5,7 +5,17 @@ import json
 
 
 async def verify_rss_feed(url, session):
-    """Verify a single RSS feed and return its status."""
+    """
+    Verifies a single RSS feed and return its status.
+    _summary_
+
+    Args:
+        url (_type_): _description_
+        session (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     try:
         async with session.get(url, timeout=10) as response:  # 10-second timeout
             if response.status == 200:
@@ -42,7 +52,17 @@ async def verify_rss_feeds(rss_urls):
 
 
 def load_rss_urls(file_path):
-    """Load RSS feed URLs from a JSON file."""
+    """
+    Load RSS feed URLs from a JSON file.
+
+    _summary_
+
+    Args:
+        file_path (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     try:
         with open(file_path, "r") as file:
             data = json.load(file)

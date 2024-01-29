@@ -6,7 +6,16 @@ from plotly.subplots import make_subplots
 
 
 def visualize_data(stock_symbol, news_data, stock_data):
-    """Create responsive and fluid visualizations for stock prices and news sentiment."""
+    """
+    Creates responsive and fluid visualizations for stock prices and news sentiment.
+
+    _summary_
+
+    Args:
+        stock_symbol (_type_): _description_
+        news_data (_type_): _description_
+        stock_data (_type_): _description_
+    """
     # Create DataFrame from news_data
     df = pd.DataFrame(news_data)
 

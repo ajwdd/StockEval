@@ -55,7 +55,18 @@ async def fetch_feeds(rss_urls, session):
 
 
 def filter_relevant_articles(entries, stock_symbol, company_name):
-    """Filter relevant news articles from the entries."""
+    """
+    Filter relevant news articles from the entries.
+    _summary_
+
+    Args:
+        entries (_type_): _description_
+        stock_symbol (_type_): _description_
+        company_name (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     relevant_articles = []
     for entry in entries:
         if stock_symbol.lower() in entry.title.lower() or any(
@@ -66,7 +77,16 @@ def filter_relevant_articles(entries, stock_symbol, company_name):
 
 
 def validate_feed_data(feed_entries):
-    """Validate the format of the feed entries."""
+    """
+    Validate the format of the feed entries.
+    _summary_
+
+    Args:
+        feed_entries (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     valid_entries = []
     for entry in feed_entries:
         if "title" in entry and "link" in entry:
@@ -87,7 +107,19 @@ def log_article_status(fetched_count, relevant_count):
 
 
 async def fetch_news(rss_urls, stock_symbol, company_name, target_count):
-    """Fetch news articles, filter them, and log their status."""
+    """
+    Fetch news articles, filter them, and log their status.
+    _summary_
+
+    Args:
+        rss_urls (_type_): _description_
+        stock_symbol (_type_): _description_
+        company_name (_type_): _description_
+        target_count (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     global news_cache
     cache_key = (stock_symbol, company_name, target_count)
     if cache_key in news_cache:

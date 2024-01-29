@@ -11,6 +11,18 @@ import yfinance as yf
 
 
 def get_stock_data(ticker, start_date, end_date):
+    """
+    Returns stock data for a given ticker symbol and date range.
+    _summary_
+
+    Args:
+        ticker (_type_): _description_
+        start_date (_type_): _description_
+        end_date (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     try:
         stock_data = yf.download(ticker, start=start_date, end=end_date)
         return stock_data
@@ -36,6 +48,16 @@ def preprocess_data(stock_data):
 
 
 def create_features(stock_data):
+    """
+    Creates features for the stock data.
+    _summary_
+
+    Args:
+        stock_data (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     try:
         stock_data["SMA_50"] = stock_data["Close"].rolling(window=50).mean()
         stock_data["SMA_200"] = stock_data["Close"].rolling(window=200).mean()

@@ -4,8 +4,17 @@ import yfinance as yf
 from colorama import Fore
 
 
-# Function to fetch current US 10-Year Treasury yield as the risk-free rate
 def get_current_risk_free_rate():
+    """
+    Fetches the current risk-free rate from Yahoo Finance by using
+    the US 10-Year Treasury yield. The risk-free rate is used to calculate
+    the Sharpe and Sortino Ratios, which are measures of risk-adjusted return.
+
+    _summary_
+
+    Returns:
+        _type_: _description_
+    """
     try:
         treasury_data = yf.Ticker("^TNX")
         hist = treasury_data.history(period="5d")
@@ -22,15 +31,37 @@ def get_current_risk_free_rate():
         return None
 
 
-# Sharpe Ratio calculation
 def calculate_sharpe_ratio(returns, risk_free_rate):
+    """Calculates the Sharpe Ratio given a set of returns and a risk-free rate.
+    The Sharpe Ratio is a measure of risk-adjusted return, and is one of the most popular
+    metrics for comparing the performance of investment strategies.
+
+    Args:
+        returns (_type_): _description_
+        risk_free_rate (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     excess_returns = returns - risk_free_rate / 252
     sharpe_ratio = np.mean(excess_returns) / np.std(excess_returns, ddof=1)
     return sharpe_ratio * np.sqrt(252)
 
 
-# Sortino Ratio calculation
 def calculate_sortino_ratio(returns, risk_free_rate):
+    """Calculates the Sortino Ratio given a set of returns and a risk-free rate.
+    The Sortino Ratio is a variation of the Sharpe Ratio that only considers the downside risk,
+    and is therefore more suitable for investors with a low risk tolerance.
+
+    _summary_
+
+    Args:
+        returns (_type_): _description_
+        risk_free_rate (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     excess_returns = returns - risk_free_rate / 252
     downside_returns = excess_returns[excess_returns < 0]
 
@@ -44,6 +75,18 @@ def calculate_sortino_ratio(returns, risk_free_rate):
 
 # Maximum Drawdown calculation
 def calculate_maximum_drawdown(returns):
+    """Calculates the Maximum Drawdown given a set of returns.
+    The Maximum Drawdown is a measure of downside risk, and is the largest
+    percentage drop in the value of a portfolio from a previous peak.
+
+    _summary_
+
+    Args:
+        returns (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     cumulative_returns = (1 + returns).cumprod()
     peak = cumulative_returns.expanding(min_periods=1).max()
     drawdown = (cumulative_returns - peak) / peak
@@ -53,6 +96,17 @@ def calculate_maximum_drawdown(returns):
 
 # Function to interpret and explain the risk-free rate
 def interpret_risk_free_rate(risk_free_rate):
+    """
+    Interprets the risk-free rate and explains how it affects the Sharpe and Sortino Ratios.
+
+    _summary_
+
+    Args:
+        risk_free_rate (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     if risk_free_rate is None:
         return ("Error", Fore.RED + f"The risk-free rate could not be fetched.")
     if risk_free_rate < 0.01:
@@ -74,6 +128,7 @@ def interpret_risk_free_rate(risk_free_rate):
 
 # Function to dynamically interpret the Sharpe and Sortino Ratios
 def interpret_ratio(ratio, ratio_name):
+    """Interprets the Sharpe and Sortino Ratios and explains what they mean."""
     if ratio > 2:
         return (
             Fore.GREEN
@@ -98,6 +153,7 @@ def interpret_ratio(ratio, ratio_name):
 
 # Function to interpret Maximum Drawdown
 def interpret_drawdown(drawdown):
+    """Interprets the Maximum Drawdown and explains what it means."""
     if drawdown > -0.1:
         return (
             Fore.GREEN
@@ -126,6 +182,18 @@ if risk_free_rate > 0:
 
 
 def calculate_rsi(data, window=14):
+    """Calculates the Relative Strength Index (RSI) given a set of data and a window.
+    The RSI is a momentum indicator that measures the magnitude of recent price changes
+    to evaluate overbought or oversold conditions in the price of a stock or other asset.
+
+    _summary_
+
+    Args:
+        data (_type_): _description_
+        window (int, optional): _description_. Defaults to 14.
+
+    Returns:
+        _type_: _description_"""
     try:
         diff = data.diff(1)
         gain = diff.where(diff > 0, 0)
@@ -145,6 +213,19 @@ def calculate_rsi(data, window=14):
 
 
 def predict_future_prices(model, scaler, current_features, selected_features):
+    """Predicts future prices given a model, a scaler, a set of current features, and a set of selected features.
+
+    _summary_
+
+    Args:
+        model (_type_): _description_
+        scaler (_type_): _description_
+        current_features (_type_): _description_
+        selected_features (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     try:
         # Select the relevant features
         current_features = current_features[selected_features]
