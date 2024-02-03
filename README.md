@@ -4,22 +4,20 @@
 
 ## 🌐 Overview
 
-A suite of two investment tools, a stock price forecaster and sentiment analysis. This suite is built to be as accurate and in-depth as possible for low-resource machines.
+A suite of two investment tools, a stock price forecaster and sentiment analyzer.<br/>
+Built to be as accurate and in-depth as possible for low-resource machines.
 
 ## 🚀 Features
 
 ### 📈 Forecast
 
 - Predicts the closing stock price for the next day.
-- Provides information on whether the predicted price will go up or down.
-- Calculates the percentage change from the last close.
+- Predicts the closing stock price for the next day using TensorFlow, fetches the current risk-free rate from the US 10-Year Treasury yield to calculate the Sharpe and Sortino Ratios, which are measures of risk-adjusted return.
 
 ### 📊 Sentiment
 
-- Fetch news from multiple finance news RSS feeds.
-- Filter relevant news articles based on stock symbols and company names.
-- Analyze the sentiment of each article title.
-- Visualize stock prices and sentiment scores.
+- Gathers recent finance news and analyzes the sentiment of each article.
+- Creates a Plotly graph to visualize stock prices, sentiment scores, and their repective articles.
 
 ### 🔧 Prerequisites
 
