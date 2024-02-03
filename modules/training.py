@@ -1,14 +1,14 @@
 import logging
-import threading
-import time
 from colorama import Fore
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
+from keras.callbacks import EarlyStopping
 from modules.calcs import calculate_rsi
 import yfinance as yf
 
+days_ahead = 1  # Number of days to forecast ahead
 
 def get_stock_data(ticker, start_date, end_date):
     """
@@ -77,8 +77,7 @@ def create_features(stock_data):
         stock_data["Rolling_Mean_Close"] = stock_data["Close"].rolling(window=10).mean()
         stock_data["Rolling_Std_Close"] = stock_data["Close"].rolling(window=10).std()
 
-        stock_data["Future_Close"] = stock_data["Close"].shift(-1)
-
+        stock_data["Future_Close"] = stock_data["Close"].shift(-days_ahead)  # Shift for 8 days ahead
         stock_data = stock_data.dropna()
 
         return stock_data
@@ -118,7 +117,7 @@ def train_model(features, target):
         model.add(
             LSTM(units=250, activation="relu", input_shape=(X_train_scaled.shape[1], 1))
         )
-        model.add(Dense(units=1))
+        model.add(Dense(units=days_ahead))
         model.compile(optimizer="adam", loss="mse")
 
         X_train_reshaped = X_train_scaled.reshape(
@@ -127,6 +126,8 @@ def train_model(features, target):
         X_test_reshaped = X_test_scaled.reshape(
             (X_test_scaled.shape[0], X_test_scaled.shape[1], 1)
         )
+        
+        early_stopping = EarlyStopping(monitor='val_loss', patience=50, restore_best_weights=True)
 
         model.fit(
             X_train_reshaped,
@@ -135,6 +136,7 @@ def train_model(features, target):
             batch_size=128,
             validation_data=(X_test_reshaped, y_test),
             verbose=3,
+            callbacks=[early_stopping]  # Add callback here
         )
 
         return model, scaler
