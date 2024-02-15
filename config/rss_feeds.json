@@ -12,11 +12,10 @@
     "Financial Post": "http://feeds.feedburner.com/FP_TopStories",
     "Financial Times": "https://www.ft.com/?format=rss",
     "Forbes": "https://www.forbes.com/real-time/feed2/",
-    "Forune": "https://fortune.com/feed/",
+    "Fortune": "https://fortune.com/feed/",
     "Fox Business Industries": "http://feeds.foxbusiness.com/foxbusiness/industries",
     "Fox Business Latest": "http://feeds.foxbusiness.com/foxbusiness/latest",
     "Fox Business Markets": "http://feeds.foxbusiness.com/foxbusiness/markets",
-    "HuffPost": "https://www.huffpost.com/section/business/feed",
     "Investopedia": "https://www.investopedia.com/feedbuilder/feed/getfeed/?feedName=rss_headline",
     "Market Realist": "https://marketrealist.com/feed/",
     "MarketWatch Bulletins": "http://feeds.marketwatch.com/marketwatch/bulletins",
@@ -31,5 +30,13 @@
     "The Street": "https://www.thestreet.com/.rss/full/",
     "WSJ Economy": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
     "WSJ Markets News": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
-    "Yahoo Finance Top Stories": "https://finance.yahoo.com/rss/topstories"
+    "Yahoo Finance Top Stories": "https://finance.yahoo.com/rss/topstories",
+    "Economic Times Markets": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+    "NPR Business": "https://www.npr.org/rss/rss.php?id=1006",
+    "Wall Street Journal Personal Finance": "https://feeds.a.dj.com/rss/RSSWSJD.xml",
+    "CNBC Personal Finance": "https://www.cnbc.com/id/10000108/device/rss/rss.html",
+    "Financial Times Personal Finance": "https://www.ft.com/personal-finance?format=rss",
+    "MoneySense": "https://www.moneysense.ca/feed/",
+    "CNBC World News": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
+    "Quartz": "https://qz.com/feed/"
 }

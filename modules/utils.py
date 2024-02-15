@@ -1,23 +1,14 @@
 import aiohttp
 import asyncio
+from colorama import Fore
 import feedparser
 import json
 
 
 async def verify_rss_feed(url, session):
-    """
-    Verifies a single RSS feed and return its status.
-    _summary_
-
-    Args:
-        url (_type_): _description_
-        session (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
+    """Verifies a single RSS feed and return its status."""
     try:
-        async with session.get(url, timeout=10) as response:  # 10-second timeout
+        async with session.get(url, timeout=10) as response:
             if response.status == 200:
                 text = await response.text()
                 if feedparser.parse(text).entries:
@@ -38,31 +29,16 @@ async def verify_rss_feeds(rss_urls):
         tasks = [verify_rss_feed(url, session) for url in rss_urls]
         results = await asyncio.gather(*tasks)
 
-    # ANSI escape codes for colors
-    RED = "\033[91m"
-    GREEN = "\033[92m"
-    RESET = "\033[0m"  # Reset to default color
-
-    for url, status in results:
-        if "Accessible and Valid" in status:
-            color = GREEN
-        else:
-            color = RED
-        print(f"{color}RSS feed {url} - {status}{RESET}")
+    if all("Accessible and Valid" in status for url, status in results):
+        print(Fore.GREEN + "All RSS feeds accessible and valid" + Fore.RESET)
+    else:
+        for url, status in results:
+            if "Accessible and Valid" not in status:
+                print(Fore.RED + f"RSS feed {url} - {status}" + Fore.RESET)
 
 
 def load_rss_urls(file_path):
-    """
-    Load RSS feed URLs from a JSON file.
-
-    _summary_
-
-    Args:
-        file_path (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
+    """Load RSS feed URLs from a JSON file."""
     try:
         with open(file_path, "r") as file:
             data = json.load(file)

@@ -2,10 +2,9 @@ import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 from colorama import Fore
 import logging
-import warnings
 from modules.forecast import run_forecast
 from modules.sentiment import run_sentiment
-
+import warnings
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -14,12 +13,22 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s:%(levelname)s:%(message)s",
 )
+intro = r"""
+┌────────────────────────────────────┐
+│        _____                       │
+│  __ __/ __(_)__  ___ ____  _______ │
+│ / // / _// / _ \/ _ `/ _ \/ __/ -_)│
+│ \_,_/_/ /_/_//_/\_,_/_//_/\__/\__/ │
+│                                    │
+└────────────────────────────────────┘
+"""
 
 
 def main():
     while True:
-        print("1. Forecast Stock Future Price")
-        print("2. Sentiment Analysis")
+        print(intro)
+        print("1. Forecast Stock Price")
+        print("2. Stock Sentiment Analysis")
         print("3. Exit")
 
         choice = input("Enter your choice: ")

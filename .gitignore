@@ -1,5 +1,4 @@
 
 *.log
 *.log
-config.json
 *.pyc

@@ -1,28 +1,41 @@
+import asyncio
 import logging
 import aiohttp
 import feedparser
-
-
-from modules.utils import *
-from modules.visualization import *
-import asyncio
-from datetime import datetime, timedelta
 import nltk
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from colorama import Fore
 import yfinance as yf
+from datetime import datetime, timedelta
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.sentiment import SentimentIntensityAnalyzer
+import string
+from modules.config_manager import read_config
+from modules.utils import load_rss_urls, verify_rss_feeds
+from modules.visualization import visualize_data
 
-# Implementing caching for fetched news and sentiment analysis
+# Ensure NLTK resources are available
+nltk.download("punkt", quiet=True)
+nltk.download("stopwords", quiet=True)
+nltk.download("vader_lexicon", quiet=True)
+
+# Caching setup
 news_cache = {}  # Cache for news articles
 sentiment_cache = {}  # Cache for sentiment scores
 CACHE_DURATION = timedelta(hours=1)
 
+# Sentiment analysis setup
+sia = SentimentIntensityAnalyzer()
+
 
 def is_cache_valid(cache_entry):
+    """Check if the cache entry is still valid based on the current time."""
     current_time = datetime.now()
     return current_time - cache_entry["timestamp"] < CACHE_DURATION
 
 
 def clean_up_cache():
+    """Remove expired entries from the cache."""
     global sentiment_cache
     current_time = datetime.now()
     expired_keys = [
@@ -55,38 +68,63 @@ async def fetch_feeds(rss_urls, session):
 
 
 def filter_relevant_articles(entries, stock_symbol, company_name):
-    """
-    Filter relevant news articles from the entries.
-    _summary_
-
-    Args:
-        entries (_type_): _description_
-        stock_symbol (_type_): _description_
-        company_name (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
+    """Filter relevant news articles from the entries."""
     relevant_articles = []
     for entry in entries:
-        if stock_symbol.lower() in entry.title.lower() or any(
-            word.lower() in entry.title.lower() for word in company_name.split()
-        ):
-            relevant_articles.append((entry.title, entry.link))
+        score = calculate_relevance_score(
+            entry.title + " " + entry.get("summary", ""), stock_symbol, company_name
+        )
+        if score > 0:  # Score threshold can be adjusted
+            relevant_articles.append((entry.title, entry.link, score))
     return relevant_articles
 
 
+def calculate_relevance_score(text, stock_symbol, company_name):
+    """Calculate relevance score with advanced criteria including sentiment analysis."""
+    words = word_tokenize(text.lower())
+    stop_words = set(stopwords.words("english") + list(string.punctuation))
+    filtered_words = [
+        word for word in words if word not in stop_words and word.isalpha()
+    ]
+
+    score = sum(
+        word in filtered_words
+        for word in company_name.lower().split() + [stock_symbol.lower()]
+    )
+    score = adjust_score_with_sentiment(text, score)
+
+    return score
+
+
+def adjust_score_with_sentiment(text, initial_score):
+    """Adjust the relevance score based on sentiment analysis."""
+    sentiment_score = sia.polarity_scores(text)["compound"]
+    if sentiment_score > 0.5 or sentiment_score < -0.5:
+        return initial_score * 1.5
+    return initial_score
+
+
+async def analyze_sentiment(text):
+    """Analyze the sentiment of a given text, utilizing caching."""
+    global sentiment_cache
+    current_time = datetime.now()
+
+    if text in sentiment_cache and is_cache_valid(sentiment_cache[text]):
+        logging.info("Returning cached sentiment")
+        return sentiment_cache[text]["score"]
+
+    score = sia.polarity_scores(text)["compound"]
+    sentiment_cache[text] = {"score": score, "timestamp": current_time}
+    return score
+
+
+async def analyze_sentiment_parallel(texts):
+    """Analyze sentiment for multiple texts in parallel."""
+    return await asyncio.gather(*(analyze_sentiment(text) for text in texts))
+
+
 def validate_feed_data(feed_entries):
-    """
-    Validate the format of the feed entries.
-    _summary_
-
-    Args:
-        feed_entries (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
+    """Validate the format of the feed entries."""
     valid_entries = []
     for entry in feed_entries:
         if "title" in entry and "link" in entry:
@@ -107,19 +145,7 @@ def log_article_status(fetched_count, relevant_count):
 
 
 async def fetch_news(rss_urls, stock_symbol, company_name, target_count):
-    """
-    Fetch news articles, filter them, and log their status.
-    _summary_
-
-    Args:
-        rss_urls (_type_): _description_
-        stock_symbol (_type_): _description_
-        company_name (_type_): _description_
-        target_count (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
+    """Fetch news articles, filter them, and log their status."""
     global news_cache
     cache_key = (stock_symbol, company_name, target_count)
     if cache_key in news_cache:
@@ -151,9 +177,7 @@ async def fetch_news(rss_urls, stock_symbol, company_name, target_count):
 
     if relevant_count < target_count:
         message = f"Could only find {relevant_count} relevant articles out of the requested {target_count}"
-        YELLOW = "\033[93m"
-        RESET = "\033[0m"
-        print(YELLOW + message + RESET)  # Print in yellow
+        print(Fore.YELLOW + message + Fore.RESET)
         logging.info(message)
 
     log_article_status(fetched_count, relevant_count)
@@ -162,32 +186,12 @@ async def fetch_news(rss_urls, stock_symbol, company_name, target_count):
     return news_items
 
 
-# Initialize and download necessary resources
-nltk.download("vader_lexicon", quiet=True)
-sia = SentimentIntensityAnalyzer()
-
-
-async def analyze_sentiment(text):
-    global sentiment_cache
-    current_time = datetime.now()
-
-    # Check cache and expiration
-    if text in sentiment_cache and is_cache_valid(sentiment_cache[text]):
-        logging.info("Returning cached sentiment")
-        return sentiment_cache[text]["score"]
-
-    # Analyze and update cache
-    score = sia.polarity_scores(text)["compound"]
-    sentiment_cache[text] = {"score": score, "timestamp": current_time}
-    return score
-
-
-async def analyze_sentiment_parallel(texts):
-    return await asyncio.gather(*(analyze_sentiment(text) for text in texts))
-
-
 def run_sentiment():
-    verify_feeds = True
+    # Read the configuration
+    config = read_config()
+    verify_feeds = config.get(
+        "verify_rss_on_startup", True
+    )  # Default to True if not set
 
     file_path = "config/rss_feeds.json"
 
@@ -195,11 +199,47 @@ def run_sentiment():
         logging.info("Starting RSS feed verification")
         rss_urls = load_rss_urls(file_path)
         asyncio.run(verify_rss_feeds(rss_urls))
+    else:
+        print(
+            Fore.YELLOW
+            + "RSS feed verification is disabled in the configuration."
+            + Fore.RESET
+        )
+        logging.info("RSS feed verification is disabled in the configuration.")
 
-    stock_symbol = input("Enter the stock ticker: ").strip().upper()
-    target_article_count = int(
-        input("Enter desired number of relevant articles: ").strip()
-    )
+    valid_symbol = False
+    while not valid_symbol:
+        stock_symbol = input("Enter the stock ticker: ").strip().upper()
+        try:
+            stock_info = yf.Ticker(stock_symbol).info
+            if "longName" in stock_info:
+                valid_symbol = True
+                company_name = stock_info.get("longName", "")
+            else:
+                print("Invalid stock symbol. Please try again.")
+        except Exception as e:
+            print(
+                Fore.RED
+                + f"Error fetching data for symbol {stock_symbol}: {e}. Please try again."
+                + Fore.RESET
+            )
+
+    valid_article_count = False
+    while not valid_article_count:
+        try:
+            target_article_count_input = input(
+                "Enter desired number of relevant articles: "
+            ).strip()
+            target_article_count = int(target_article_count_input)
+            if target_article_count > 0:
+                valid_article_count = True
+            else:
+                print("Please enter a positive integer for the number of articles.")
+        except ValueError:
+            print(
+                "Invalid input. Please enter a valid positive integer for the number of articles."
+            )
+
     stock_info = yf.Ticker(stock_symbol).info
     company_name = stock_info.get("longName", "")
     rss_urls = load_rss_urls(file_path)

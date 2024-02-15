@@ -22,8 +22,8 @@ from modules.training import (
 
 def run_forecast():
     """
-    Runs the forecast module.
-    This module prompts the user for a stock ticker symbol and a date range,
+    Runs the forecast.
+    This function prompts the user for a stock ticker symbol and a date range,
     and then it calculates and interprets the Sharpe and Sortino Ratios,
     the Maximum Drawdown, and the Risk-Free Rate.
     """

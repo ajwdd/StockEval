@@ -1,32 +1,30 @@
 # visualization.py
+import numpy as np
 import logging
 import pandas as pd
+import plotly.io as pio
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
+pio.templates.default = "ggplot2"
+
 
 def visualize_data(stock_symbol, news_data, stock_data):
-    """
-    Creates responsive and fluid visualizations for stock prices and news sentiment.
-
-    _summary_
-
-    Args:
-        stock_symbol (_type_): _description_
-        news_data (_type_): _description_
-        stock_data (_type_): _description_
-    """
+    """Creates responsive and fluid visualizations for stock prices and news sentiment."""
     # Create DataFrame from news_data
     df = pd.DataFrame(news_data)
 
     # Check if DataFrame has sentiment data
-    if "sentiment" not in df.columns or df.empty:
-        print("No sentiment data available.")
+    if "sentiment" not in df.columns or "source" not in df.columns or df.empty:
+        print("Required data (sentiment or URL) is missing.")
         return
 
+    if "source" not in df.columns:
+        df["source"] = "N/A"
+        print("No URL available for" + df["title"] + ".")
     # Calculate the average sentiment score
     avg_sentiment = df["sentiment"].mean()
-    print(f"\nAverage Sentiment Score: {avg_sentiment:.2f}")
+    print(f"Average Sentiment Score: {avg_sentiment:.2f}")
 
     # Fetch historical stock data
     hist = stock_data.history(period="1mo")
@@ -45,18 +43,18 @@ def visualize_data(stock_symbol, news_data, stock_data):
 
     # Adding the stock price line chart
     fig.add_trace(
-        go.Scatter(
+        go.Candlestick(
             x=hist.index,
-            y=hist["Close"],
-            mode="lines+markers",
-            name="Stock Price",
-            line=dict(width=2, color="blue"),
-            marker=dict(size=7, color="red"),
-            hoverinfo="x+y",
+            open=hist["Open"],
+            high=hist["High"],
+            low=hist["Low"],
+            close=hist["Close"],
+            name=f"{stock_symbol} Data",
         ),
         row=1,
         col=1,
     )
+    fig.update_layout(xaxis_rangeslider_visible=False)
 
     # Shortening titles and sources
     shortened_titles = [
@@ -70,28 +68,28 @@ def visualize_data(stock_symbol, news_data, stock_data):
     fig.add_trace(
         go.Heatmap(
             z=df["sentiment"],
-            x=shortened_sources,
+            x=shortened_sources,  # Assuming this is correctly capturing your 'source' data
             y=shortened_titles,
             colorscale="RdBu",
-            hoverinfo="x+y+z",
-            text=df["title"],  # Show full title on hover
+            hoverinfo="none",  # Disabling default hover info
+            customdata=np.stack((df["title"], df["source"]), axis=-1),
+            hovertemplate="<b>Source: %{customdata[1]}</b><br>Title: %{customdata[0]}<br>Sentiment: %{z}<extra></extra><br>",
         ),
         row=2,
         col=1,
     )
-
+    # Add go.
     # Updating layout for responsive design and margin adjustment
     fig.update_layout(
-        height=800,
+        autosize=True,
+        width=None,  # Set to a specific value if autosize doesn't work as expected
+        height=800,  # Adjust based on the need to fit content without scrolling
         showlegend=True,
         hovermode="closest",
         title_text=f"Sentiment Visualization for {stock_symbol} - Avg Sentiment: {avg_sentiment:.2f}",
         title_x=0.5,
-        autosize=True,
-        legend=dict(
-            orientation="h", yanchor="auto", y=1.02, xanchor="right", x=1
-        ),
-        margin=dict(l=40, r=40, t=40, b=40),
+        margin=dict(l=5, r=5, t=50, b=20),  # Left, Right, Top, Bottom margins
+        legend=dict(orientation="h", yanchor="auto", y=1.02, xanchor="right", x=1),
     )
 
     fig.show()

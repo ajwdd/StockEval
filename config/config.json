@@ -1,0 +1,13 @@
+{
+    "verify_rss_on_startup": true,
+    "optimizer": "adam",
+    "loss": "mse",
+    "metrics": ["accuracy"],
+    "batch_size": 128,
+    "epochs": 1000,
+    "early_stopping": {
+      "monitor": "val_loss",
+      "patience": 50,
+      "restore_best_weights": true
+    }
+}
