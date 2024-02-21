@@ -13,10 +13,12 @@ import yfinance as yf
 days_ahead = 1
 training = True
 
+
 def load_config():
     """Load training configuration from config.json."""
-    with open('config/config.json') as config_file:
+    with open("config/config.json") as config_file:
         return json.load(config_file)
+
 
 def get_stock_data(ticker, start_date, end_date):
     """Returns stock data for a given ticker symbol and date range."""
@@ -65,9 +67,7 @@ def create_features(stock_data):
         stock_data["Rolling_Mean_Close"] = stock_data["Close"].rolling(window=10).mean()
         stock_data["Rolling_Std_Close"] = stock_data["Close"].rolling(window=10).std()
 
-        stock_data["Future_Close"] = stock_data["Close"].shift(
-            -days_ahead
-        )
+        stock_data["Future_Close"] = stock_data["Close"].shift(-days_ahead)
         stock_data = stock_data.dropna()
 
         return stock_data
@@ -78,38 +78,50 @@ def create_features(stock_data):
 
 
 def train_model(features, target):
-    config = load_config()  # Load the configuration settings
+    config = load_config()
 
     try:
         if len(features) < 2:
             logging.warning("Not enough samples to train the model.")
-            print("\r" + Fore.RED + "Not enough samples to train the model." + Fore.RESET + " " * 30)
+            print(
+                "\r"
+                + Fore.RED
+                + "Not enough samples to train the model."
+                + Fore.RESET
+                + " " * 30
+            )
             training = False
             return None, None
 
-        X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(
+            features, target, test_size=0.2, random_state=42
+        )
         scaler = StandardScaler()
         X_train_scaled = scaler.fit_transform(X_train)
         X_test_scaled = scaler.transform(X_test)
 
         model = Sequential()
-        model.add(LSTM(units=250, activation="relu", input_shape=(X_train_scaled.shape[1], 1)))
+        model.add(
+            LSTM(units=250, activation="relu", input_shape=(X_train_scaled.shape[1], 1))
+        )
         model.add(Dense(units=days_ahead))
 
-        # Use optimizer and loss from the configuration
         model.compile(optimizer=config["optimizer"], loss=config["loss"])
 
-        X_train_reshaped = X_train_scaled.reshape((X_train_scaled.shape[0], X_train_scaled.shape[1], 1))
-        X_test_reshaped = X_test_scaled.reshape((X_test_scaled.shape[0], X_test_scaled.shape[1], 1))
+        X_train_reshaped = X_train_scaled.reshape(
+            (X_train_scaled.shape[0], X_train_scaled.shape[1], 1)
+        )
+        X_test_reshaped = X_test_scaled.reshape(
+            (X_test_scaled.shape[0], X_test_scaled.shape[1], 1)
+        )
 
-        # Use early_stopping parameters from the configuration
         early_stopping = EarlyStopping(**config["early_stopping"])
 
         model.fit(
             X_train_reshaped,
             y_train,
-            epochs=config["epochs"],  # Use epochs from the configuration
-            batch_size=config["batch_size"],  # Use batch_size from the configuration
+            epochs=config["epochs"],
+            batch_size=config["batch_size"],
             validation_data=(X_test_reshaped, y_test),
             verbose=3,
             callbacks=[early_stopping],

@@ -22,6 +22,7 @@ def visualize_data(stock_symbol, news_data, stock_data):
     if "source" not in df.columns:
         df["source"] = "N/A"
         print("No URL available for" + df["title"] + ".")
+
     # Calculate the average sentiment score
     avg_sentiment = df["sentiment"].mean()
     print(f"Average Sentiment Score: {avg_sentiment:.2f}")
@@ -37,8 +38,8 @@ def visualize_data(stock_symbol, news_data, stock_data):
             f"{stock_symbol} Stock Price (1 Month)",
             "News Sentiment Heatmap",
         ),
-        vertical_spacing=0.15,  # Adjust vertical spacing
-        row_heights=[0.5, 0.5],  # Equal row heights to avoid overlapping
+        vertical_spacing=0.15,
+        row_heights=[0.5, 0.5],
     )
 
     # Adding the stock price line chart
@@ -68,7 +69,7 @@ def visualize_data(stock_symbol, news_data, stock_data):
     fig.add_trace(
         go.Heatmap(
             z=df["sentiment"],
-            x=shortened_sources,  # Assuming this is correctly capturing your 'source' data
+            x=shortened_sources,
             y=shortened_titles,
             colorscale="RdBu",
             hoverinfo="none",  # Disabling default hover info
@@ -78,17 +79,16 @@ def visualize_data(stock_symbol, news_data, stock_data):
         row=2,
         col=1,
     )
-    # Add go.
-    # Updating layout for responsive design and margin adjustment
+
     fig.update_layout(
         autosize=True,
-        width=None,  # Set to a specific value if autosize doesn't work as expected
-        height=800,  # Adjust based on the need to fit content without scrolling
+        width=None,
+        height=800,
         showlegend=True,
         hovermode="closest",
         title_text=f"Sentiment Visualization for {stock_symbol} - Avg Sentiment: {avg_sentiment:.2f}",
         title_x=0.5,
-        margin=dict(l=5, r=5, t=50, b=20),  # Left, Right, Top, Bottom margins
+        margin=dict(l=5, r=5, t=50, b=20),
         legend=dict(orientation="h", yanchor="auto", y=1.02, xanchor="right", x=1),
     )
 

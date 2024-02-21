@@ -14,17 +14,15 @@ from modules.config_manager import read_config
 from modules.utils import load_rss_urls, verify_rss_feeds
 from modules.visualization import visualize_data
 
-# Ensure NLTK resources are available
 nltk.download("punkt", quiet=True)
 nltk.download("stopwords", quiet=True)
 nltk.download("vader_lexicon", quiet=True)
 
 # Caching setup
-news_cache = {}  # Cache for news articles
-sentiment_cache = {}  # Cache for sentiment scores
+news_cache = {}
+sentiment_cache = {}
 CACHE_DURATION = timedelta(hours=1)
 
-# Sentiment analysis setup
 sia = SentimentIntensityAnalyzer()
 
 
@@ -187,11 +185,8 @@ async def fetch_news(rss_urls, stock_symbol, company_name, target_count):
 
 
 def run_sentiment():
-    # Read the configuration
     config = read_config()
-    verify_feeds = config.get(
-        "verify_rss_on_startup", True
-    )  # Default to True if not set
+    verify_feeds = config.get("verify_rss_on_startup", True)
 
     file_path = "config/rss_feeds.json"
 

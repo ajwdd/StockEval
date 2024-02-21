@@ -1,4 +1,5 @@
 import os
+
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 from colorama import Fore
 import logging
@@ -13,6 +14,8 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s:%(levelname)s:%(message)s",
 )
+
+
 intro = r"""
 ┌────────────────────────────────────┐
 │        _____                       │

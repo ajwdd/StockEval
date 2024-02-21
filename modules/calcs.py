@@ -133,7 +133,8 @@ def interpret_drawdown(drawdown):
 def calculate_rsi(data, window=14):
     """Calculates the Relative Strength Index (RSI) given a set of data and a window.
     The RSI is a momentum indicator that measures the magnitude of recent price changes
-    to evaluate overbought or oversold conditions in the price of a stock or other asset."""
+    to evaluate overbought or oversold conditions in the price of a stock or other asset.
+    """
     try:
         diff = data.diff(1)
         gain = diff.where(diff > 0, 0)

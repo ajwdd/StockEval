@@ -21,12 +21,9 @@ from modules.training import (
 
 
 def run_forecast():
-    """
-    Runs the forecast.
-    This function prompts the user for a stock ticker symbol and a date range,
-    and then it calculates and interprets the Sharpe and Sortino Ratios,
-    the Maximum Drawdown, and the Risk-Free Rate.
-    """
+    """Runs the forecast. This function prompts the user for a stock ticker symbol
+    and a date range, then it calculates and interprets the Sharpe and Sortino
+    Ratios, the Maximum Drawdown, and the Risk-Free Rate."""
     while True:
         try:
             logging.info("---- Starting a new run ----")
