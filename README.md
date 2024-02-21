@@ -12,7 +12,6 @@ Built to be as accurate and in-depth as possible for low-resource machines.
 ### 📈 Forecast
 
 - Predicts the closing stock price for the next day.
-- Predicts the closing stock price for the next day using TensorFlow, fetches the current risk-free rate from the US 10-Year Treasury yield to calculate the Sharpe and Sortino Ratios, which are measures of risk-adjusted return.
 
 ### 📊 Sentiment
 
