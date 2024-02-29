@@ -16,7 +16,6 @@ from modules.training import (
     get_stock_data,
     preprocess_data,
     create_features,
-    create_features,
 )
 
 
