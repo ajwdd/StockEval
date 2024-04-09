@@ -5,6 +5,7 @@ from keras.models import Sequential
 import logging
 import json
 from modules.calcs import calculate_rsi
+from modules.config_manager import ensure_config_exists, read_config
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import yfinance as yf
@@ -12,12 +13,6 @@ import yfinance as yf
 # Global Variables
 days_ahead = 1
 training = True
-
-
-def load_config():
-    """Load training configuration from config.json."""
-    with open("config/config.json") as config_file:
-        return json.load(config_file)
 
 
 def get_stock_data(ticker, start_date, end_date):
@@ -78,7 +73,7 @@ def create_features(stock_data):
 
 
 def train_model(features, target):
-    config = load_config()
+    config = read_config()
 
     try:
         if len(features) < 2:

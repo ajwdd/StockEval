@@ -17,21 +17,18 @@ logging.basicConfig(
 
 
 intro = r"""
-┌────────────────────────────────────┐
-│        _____                       │
-│  __ __/ __(_)__  ___ ____  _______ │
-│ / // / _// / _ \/ _ `/ _ \/ __/ -_)│
-│ \_,_/_/ /_/_//_/\_,_/_//_/\__/\__/ │
-│                                    │
-└────────────────────────────────────┘
+  ___ _           _   ___          _ 
+ / __| |_ ___  __| |_| __|_ ____ _| |
+ \__ \  _/ _ \/ _| / / _|\ V / _` | |
+ |___/\__\___/\__|_\_\___|\_/\__,_|_|             
 """
 
 
 def main():
     while True:
         print(intro)
-        print("1. Forecast Stock Price")
-        print("2. Stock Sentiment Analysis")
+        print("1. Forecast Price")
+        print("2. Sentiment Analysis")
         print("3. Exit")
 
         choice = input("Enter your choice: ")
